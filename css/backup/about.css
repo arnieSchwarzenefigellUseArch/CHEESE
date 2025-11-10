@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    background-color: #f8f6f0; /* Кремовый фон как в старых газетах */
+    font-family: 'Playfair Display', serif;
+    color: #2c2c2c; /* Темно-серый текст */
+}
+
+header {
+    background-color: #1a1a1a; /* Черный как в The Times */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #d4af37; /* Золотая полоска */
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .container div {
+    font-size: 42px;
+    margin-left: 20px;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    color: #f8f6f0; /* Белый текст на черном */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+header img {
+    max-width: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.container {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Центрированный контент */
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Заголовки центрированы */
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* Параграфы по левому краю для читабельности */
+p {
+    text-align: left;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+/* Нижняя навигация */
+.bottom-nav {
+    background-color: #f8f6f0;
+    border-top: 1px solid #d4af37;
+    padding: 12px 0;
+    margin-top: 40px;
+}
+
+.bottom-nav .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.bottom-nav a {
+    color: #1a1a1a; /* Темный текст */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #c0c0c0; /* Светло-серая обводка */
+}
+
+.bottom-nav a:hover {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+    transform: translateY(-1px);
+}
+
+.bottom-nav a.active {
+    color: #f8f6f0; /* Белый текст */
+    background: #d4af37; /* Золотой фон */
+    border-color: #d4af37;
+    font-weight: 600;
+}
+
+.bottom-nav::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    margin: 0 auto 12px auto;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #b8b8b8;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+
+footer::before {
+    content: '🧀 ';
+}
+
+footer::after {
+    content: ' 🧀';
+}
+
+/* Мягкие стили для жирного текста и курсива */
+b, strong {
+    font-weight: 600;
+    color: #3a3a3a; /* Менее контрастный серый */
+}
+
+i, em {
+    font-style: italic;
+    color: #5a5a5a; /* Еще мягче */
+    font-weight: 400;
+}
+
+/* Заголовки тоже мягче */
+h1, h2, h3 {
+    font-weight: 700;
+    color: #3a3a3a; /* Мягкий серый вместо черного */
+}
+
+h1 { font-size: 2.5em; transition: color 0.3s ease; }
+h2 { font-size: 2em; color: #4a4a4a; transition: color 0.3s ease; }
+h3 { font-size: 1.5em; color: #5a5a5a; transition: color 0.3s ease; }
+
+/* Анимации при наведении */
+h1:hover, h2:hover, h3:hover {
+    color: #d4af37; /* Золотой при наведении */
+    cursor: pointer;
+}
+
+.container {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

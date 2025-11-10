@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{.Title}}</title>
+    
+    <!-- Google Fonts ЕБАААААТЬЬ я нашел fontы бля -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <!-- CSS файлы для конкретной страницы -->
+    {{range .CSSFiles}}
+        <link rel="stylesheet" href="{{.}}">
+    {{end}}
+</head>
+<body>
+    <!-- Верхняя навигация бубликом -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="/" class="nav-link">Homepage</a>
+            <a href="/catalog" class="nav-link">catalog</a>
+            <a href="/history" class="nav-link"> history</a>
+            <a href="/about" class="nav-link"> about us</a>
+        </div>
+    </nav>
+    
+    {{template "header.html" .}}
+    
+    <!-- Декоративные сыры -->
+    <div class="cheese-decoration bri"></div>
+    <div class="cheese-decoration cdr"></div>
+    <div class="cheese-decoration kmb"></div>
+    <div class="cheese-decoration prm"></div>
+    <div class="cheese-decoration rkf"></div>
+    
+    {{.Content}}
+    
+    <!-- Кнопка скролла вверх -->
+    <button class="scroll-to-top" id="scrollToTop"></button>
+     <footer>
+        <p>&copy; komar.io 2025</p>
+    </footer>
+    <!-- JS файлы для конкретной страницы -->
+    {{range .JSFiles}}
+        <script src="{{.}}"></script>
+    {{end}}
+    
+    <!-- Скрипт для навигации и скролла -->
+    <script>
+        // Кнопка скролла вверх
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Активная ссылка в навигации
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
