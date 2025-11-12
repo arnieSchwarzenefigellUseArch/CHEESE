@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{{.Title}}</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Google Fonts ЕБАААААТЬЬ я нашел fontы бля -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,13 +27,7 @@
     
     {{template "header.html" .}}
     
-    <!-- Декоративные сыры -->
-    <div class="cheese-decoration bri"></div>
-    <div class="cheese-decoration cdr"></div>
-    <div class="cheese-decoration kmb"></div>
-    <div class="cheese-decoration prm"></div>
-    <div class="cheese-decoration rkf"></div>
-    
+  
     {{.Content}}
     
     <!-- Кнопка скролла вверх -->
@@ -44,6 +39,9 @@
     {{range .JSFiles}}
         <script src="{{.}}"></script>
     {{end}}
+    
+    <!-- Анимации скролла -->
+    <script src="/js/scroll-animations.js"></script>
     
     <!-- Скрипт для навигации и скролла -->
     <script>

@@ -1,15 +1,18 @@
 body {
     margin: 0;
-    background-color: #f8f6f0; /* Кремовый фон как в старых газетах */
+    background: linear-gradient(135deg, #fdcb6e 0%, #e17055 50%, #f39c12 100%); /* Сырные оттенки */
     font-family: 'Playfair Display', serif;
-    color: #2c2c2c; /* Темно-серый текст */
+    color: #2d3436;
+    padding-top: 80px;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #1a1a1a; /* Черный как в The Times */
+    background: linear-gradient(135deg, #e17055 0%, #fdcb6e 100%);
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 3px solid #d4af37; /* Золотая полоска */
+    border-bottom: 3px solid #f39c12;
+    box-shadow: 0 4px 20px rgba(225, 112, 85, 0.3);
 }
 
 header .container {
@@ -23,7 +26,7 @@ header .container div {
     margin-left: 20px;
     font-weight: 900;
     font-family: 'Playfair Display', serif;
-    color: #f8f6f0; /* Белый текст на черном */
+    color: #ffffff; /* Белый текст */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
@@ -37,6 +40,7 @@ header img {
     max-width: 1260px;
     margin: 0 auto;
     padding: 0 20px;
+    animation: fadeIn 1s ease-in;
 }
 
 /* Центрированный контент */
@@ -44,23 +48,63 @@ header img {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
+    background: linear-gradient(145deg, #fff9e6 0%, #fef5e7 100%);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 25px 80px rgba(253, 203, 110, 0.3), inset 0 1px 0 rgba(255,255,255,0.6);
+    border: 2px solid rgba(243, 156, 18, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 /* Заголовки центрированы */
 h1, h2, h3 {
     text-align: center;
+    font-weight: 700;
+    color: #2d3436;
+}
+
+h1 { 
+    font-size: 2.5em; 
+    transition: color 0.3s ease;
+    color: #2d3436;
+}
+
+h2 { 
+    font-size: 2em; 
+    color: #2d3436; 
+    transition: color 0.3s ease; 
+}
+
+h3 { 
+    font-size: 1.5em; 
+    color: #636e72; 
+    transition: color 0.3s ease; 
+}
+
+/* Анимации при наведении */
+h1:hover, h2:hover, h3:hover {
+    color: #e17055; /* Оранжевый при наведении */
+    cursor: pointer;
 }
 
 /* Параграфы по левому краю для читабельности */
 p {
-    line-height: 1.6;
+    line-height: 1.8;
     margin: 20px 0;
+    color: #636e72;
+    font-size: 16px;
 }
 
 .cheese-fact {
-    padding-left: 2rem;
-    font-weight: 700;
-    border-left: 2px solid yellow;
+    padding: 20px;
+    margin: 25px 0;
+    font-weight: 600;
+    border-left: 4px solid #f39c12;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 15px;
+    color: #2d3436;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
 }
 
 /* Верхняя навигация бубликом */
@@ -69,13 +113,13 @@ p {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(225, 112, 85, 0.9);
     backdrop-filter: blur(10px);
     border-radius: 50px;
     padding: 8px 20px;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 20px rgba(225, 112, 85, 0.4);
+    border: 1px solid rgba(243, 156, 18, 0.4);
 }
 
 .top-nav .nav-links {
@@ -96,14 +140,14 @@ p {
 }
 
 .top-nav a:hover {
-    color: #d4af37;
-    background: rgba(212, 175, 55, 0.2);
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.2);
     transform: translateY(-2px);
 }
 
 .top-nav a.active {
-    color: #1a1a1a;
-    background: #d4af37;
+    color: #ffffff;
+    background: #f39c12;
     font-weight: 600;
 }
 
@@ -114,28 +158,35 @@ p {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: #d4af37;
+    background: linear-gradient(135deg, #e17055 0%, #f39c12 100%);
     border: none;
     border-radius: 50%;
-    color: #1a1a1a;
+    color: #ffffff;
     font-size: 20px;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(225, 112, 85, 0.4);
 }
 
 .scroll-to-top.visible {
     opacity: 1;
     visibility: visible;
+    animation: border-glow 2s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+    0% { box-shadow: 0 0 0 3px #0984e3, 0 4px 15px rgba(9, 132, 227, 0.4); }
+    50% { box-shadow: 0 0 0 3px #00cec9, 0 4px 15px rgba(0, 206, 201, 0.4); }
+    100% { box-shadow: 0 0 0 3px #0984e3, 0 4px 15px rgba(9, 132, 227, 0.4); }
 }
 
 .scroll-to-top:hover {
-    background: #f4d03f;
+    background: linear-gradient(135deg, #fdcb6e 0%, #d63031 100%);
     transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 6px 20px rgba(225, 112, 85, 0.6);
 }
 
 .scroll-to-top::before {
@@ -143,76 +194,16 @@ p {
     font-weight: bold;
 }
 
-/* Нижняя навигация */
-.bottom-nav {
-    background-color: #f8f6f0;
-    border-top: 1px solid #d4af37;
-    padding: 12px 0;
-    margin-top: 40px;
-}
-
-.bottom-nav .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-.bottom-nav a {
-    color: #1a1a1a; /* Темный текст */
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    border: 1px solid #c0c0c0; /* Светло-серая обводка */
-}
-
-.bottom-nav a:hover {
-    color: #d4af37;
-    background: rgba(212, 175, 55, 0.1);
-    border-color: #d4af37;
-    transform: translateY(-1px);
-}
-
-.bottom-nav a.active {
-    color: #f8f6f0; /* Белый текст */
-    background: #d4af37; /* Золотой фон */
-    border-color: #d4af37;
-    font-weight: 600;
-}
-
-.bottom-nav::before {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d4af37, transparent);
-    margin: 0 auto 12px auto;
-}
-
 footer {
-    background-color: #1a1a1a;
-    color: #b8b8b8;
+    background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+    color: #ffffff;
     text-align: center;
     padding: 15px 0;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(99, 110, 114, 0.3);
     font-size: 14px;
+    box-shadow: 0 -4px 20px rgba(45, 52, 54, 0.4);
 }
 
-footer::before {
-    content: '🧀 ';
-}
-
-footer::after {
-    content: ' 🧀';
-}
-
-
-body {
-    padding-top: 80px;
-}
 
 
 
@@ -221,36 +212,16 @@ body {
     50% { transform: translateY(-10px) rotate(5deg); }
 }
 
-/* Мягкие стили для жирного текста и курсива */
+/* Контрастные стили для жирного текста и курсива */
 b, strong {
-    font-weight: 600;
-    color: #3a3a3a; /* Менее контрастный серый */
+    font-weight: 700;
+    color: #2d3436;
 }
 
 i, em {
     font-style: italic;
-    color: #5a5a5a; /* Еще мягче */
+    color: #636e72;
     font-weight: 400;
-}
-
-/* Заголовки тоже мягче */
-h1, h2, h3 {
-    font-weight: 700;
-    color: #3a3a3a; /* Мягкий серый вместо черного */
-}
-
-h1 { font-size: 2.5em; transition: color 0.3s ease; }
-h2 { font-size: 2em; color: #4a4a4a; transition: color 0.3s ease; }
-h3 { font-size: 1.5em; color: #5a5a5a; transition: color 0.3s ease; }
-
-/* Анимации при наведении */
-h1:hover, h2:hover, h3:hover {
-    color: #d4af37; /* Золотой при наведении */
-    cursor: pointer;
-}
-
-.container {
-    animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
