@@ -2,7 +2,6 @@ package main
 
 import (
 	Handlers "komario/backend/internal/handlers"
-	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,7 +18,5 @@ func main() {
 	r.Static("/assets", "/home/roman/.projects/komario/backend/assets")
 	r.Static("/js", "/home/roman/.projects/komario/backend/js")
 	r.StaticFile("/favicon.ico", "/home/roman/.projects/komario/backend/favicon.ico")
-
-	log.Println("Server started on 0.0.0.0:8080 - accessible from network!")
 	r.Run("0.0.0.0:8080")
 }

@@ -36,7 +36,7 @@ func AboutHandler(c *gin.Context) {
 `
 
 	c.HTML(200, "base.html", gin.H{
-		"Title":    "О нас - Команда Комарио",
+		"Title":    "About us",
 		"Content":  template.HTML(html),
 		"CSSFiles": []string{"/css/style.css"},
 		"JSFiles":  []string{"/js/main.js"},

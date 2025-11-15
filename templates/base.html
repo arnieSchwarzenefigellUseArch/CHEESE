@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{{.Title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Google Fonts ЕБАААААТЬЬ я нашел fontы бля -->
@@ -15,15 +16,7 @@
     {{end}}
 </head>
 <body>
-    <!-- Верхняя навигация бубликом -->
-    <nav class="top-nav">
-        <div class="nav-links">
-            <a href="/" class="nav-link">Homepage</a>
-            <a href="/catalog" class="nav-link">catalog</a>
-            <a href="/history" class="nav-link"> history</a>
-            <a href="/about" class="nav-link"> about us</a>
-        </div>
-    </nav>
+   
     
     {{template "header.html" .}}
     
@@ -72,6 +65,38 @@
                 link.classList.add('active');
             }
         });
+        
+        // Мобильная навигация
+        const mobileToggle = document.getElementById('mobileNavToggle');
+        const mobileOverlay = document.getElementById('mobileNavOverlay');
+        
+        if (mobileToggle && mobileOverlay) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileOverlay.style.display === 'block';
+                
+                if (isOpen) {
+                    mobileOverlay.style.display = 'none';
+                    mobileToggle.classList.remove('active');
+                } else {
+                    mobileOverlay.style.display = 'block';
+                    mobileToggle.classList.add('active');
+                }
+            });
+            
+            mobileOverlay.addEventListener('click', (e) => {
+                if (e.target === mobileOverlay) {
+                    mobileOverlay.style.display = 'none';
+                    mobileToggle.classList.remove('active');
+                }
+            });
+            
+            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileOverlay.style.display = 'none';
+                    mobileToggle.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>

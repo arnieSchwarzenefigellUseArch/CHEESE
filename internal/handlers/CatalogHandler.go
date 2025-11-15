@@ -136,7 +136,7 @@ func Catalog(c *gin.Context) {
 `
 
 	c.HTML(200, "base.html", gin.H{
-		"Title":    "Каталог сыров",
+		"Title":    "Catalog",
 		"Content":  template.HTML(html),
 		"CSSFiles": []string{"/css/style.css"},
 		"JSFiles":  []string{"/js/main.js"},
