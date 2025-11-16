@@ -14,7 +14,7 @@ func main() {
 	r.GET("/about", Handlers.AboutHandler)
 	r.GET("/catalog", Handlers.Catalog)
 	r.GET("/history", Handlers.History)
-	r.Static("/css", "/home/roman/.projects/komario/backend/css")
+	r.Static("/css", "/home/roman/.projects/komario/backend/styles/css")
 	r.Static("/assets", "/home/roman/.projects/komario/backend/assets")
 	r.Static("/js", "/home/roman/.projects/komario/backend/js")
 	r.StaticFile("/favicon.ico", "/home/roman/.projects/komario/backend/favicon.ico")

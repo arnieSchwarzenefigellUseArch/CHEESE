@@ -10,13 +10,13 @@ const cssnano = require("cssnano");
 // Path configuration
 const paths = {
   build: {
-    css: "/styles/css/",
-    js: "/js/",
+    css: "styles/css/",
+    js: "js/",
   },
   src: {
-    styles: "/styles/sass/*.scss",
-    css: "theme/styles/css",
-    sass: "theme/styles/sass",
+    styles: "styles/sass/*.scss",
+    css: "styles/css",
+    sass: "styles/sass",
     vendorjs: [
       "theme/js/vendor/jquery-3.6.0.min.js",
       "theme/js/vendor/slick.js",
@@ -54,7 +54,7 @@ async function processCss() {
           const fullPath = source.replace('file://', '');
           const relativePath = path.relative(process.cwd(), fullPath);
           // Remove full path prefix and sass folder for cleaner dev tools
-          return relativePath.replace('assets/theme/stylesheets/sass/', '');
+          return relativePath.replace('styles/sass/', '');
         }
         return source;
       });
